@@ -59,7 +59,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %doc COPYING
 %{_datadir}/libhangul/hanja/hanja.txt
-%{_libdir}/*.so.0.0.0
+%{_libdir}/*.so.*
 
 %files -n %{libname}-devel
 %defattr(-,root,root)
