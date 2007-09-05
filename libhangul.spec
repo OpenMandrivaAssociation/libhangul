@@ -1,4 +1,4 @@
-%define version	0.0.4
+%define version	0.0.6
 %define release	%mkrel 1
 
 %define libname %mklibname hangul 0
