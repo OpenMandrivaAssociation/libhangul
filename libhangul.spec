@@ -11,6 +11,7 @@ Group:		System/Internationalization
 License:	LGPL
 URL:		http://kldp.net/projects/hangul/
 Source0:	%{name}-%{version}.tar.bz2
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
 libhangul is a generalized and portable library for 
