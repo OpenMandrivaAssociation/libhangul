@@ -1,16 +1,17 @@
-%define version	0.0.6
-%define release	%mkrel 2
+%define version	0.0.7
+%define release	%mkrel 1
 
 %define libname %mklibname hangul 0
+%define develname %mklibname -d hangul
 
 Name:		libhangul
 Summary:	A generalized and portable library for hangul
 Version:	%{version}
 Release:	%{release}
 Group:		System/Internationalization
-License:	LGPL
+License:	LGPLv2+
 URL:		http://kldp.net/projects/hangul/
-Source0:	%{name}-%{version}.tar.bz2
+Source0:	http://kldp.net/frs/download.php/4487/%name-%version.tar.gz
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
@@ -26,13 +27,14 @@ Provides:	%{name} = %{version}-%{release}
 %description -n %{libname}
 libhangul library.
 
-%package -n	%{libname}-devel
+%package -n	%{develname}
 Summary:	Development files for %{name}
 Group:		Development/C
 Requires:	%{libname} = %{version}
 Provides:	%{name}-devel = %{version}-%{release}
+Obsoletes:	%mklibname -d hangul 0
 
-%description -n %{libname}-devel
+%description -n %{develname}
 Headers of %{name} for development.
 
 
@@ -61,14 +63,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/libhangul/hanja/hanja.txt
 %{_libdir}/*.so.*
 
-%files -n %{libname}-devel
+%files -n %{develname}
 %defattr(-,root,root)
 %doc AUTHORS COPYING ChangeLog NEWS README
 %{_includedir}/hangul-1.0/hangul.h
 %{_libdir}/*.a
 %{_libdir}/*.la
 %{_libdir}/*.so
-%{_libdir}/*.so.0
 %{_libdir}/pkgconfig/libhangul.pc
-
-
