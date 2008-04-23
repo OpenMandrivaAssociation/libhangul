@@ -1,4 +1,4 @@
-%define version	0.0.7
+%define version	0.0.8
 %define release	%mkrel 1
 
 %define libname %mklibname hangul 0
@@ -11,7 +11,8 @@ Release:	%{release}
 Group:		System/Internationalization
 License:	LGPLv2+
 URL:		http://kldp.net/projects/hangul/
-Source0:	http://kldp.net/frs/download.php/4487/%name-%version.tar.gz
+Source0:	http://kldp.net/frs/download.php/4618/%name-%version.tar.gz
+Conflicts:	%{libname} < 0.0.8
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
@@ -22,7 +23,7 @@ processing hangul.
 %package -n	%{libname}
 Summary:	Main libhangul library
 Group:		System/Internationalization
-Provides:	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 
 %description -n %{libname}
 libhangul library.
@@ -56,11 +57,14 @@ rm -rf $RPM_BUILD_ROOT
 %post -n %{libname} -p /sbin/ldconfig
 %postun -n %{libname} -p /sbin/ldconfig
 
+%files
+%defattr(-,root,root)
+%_bindir/hanjac
+%_libdir/libhangul
+%{_datadir}/libhangul
 
 %files -n %{libname}
 %defattr(-,root,root)
-%doc COPYING
-%{_datadir}/libhangul/hanja/hanja.txt
 %{_libdir}/*.so.*
 
 %files -n %{develname}
