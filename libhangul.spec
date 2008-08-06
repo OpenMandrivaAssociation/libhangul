@@ -1,5 +1,5 @@
 %define version	0.0.8
-%define release	%mkrel 1
+%define release	%mkrel 2
 
 %define libname %mklibname hangul 0
 %define develname %mklibname -d hangul
