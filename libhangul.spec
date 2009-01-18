@@ -1,7 +1,8 @@
-%define version	0.0.8
-%define release	%mkrel 2
+%define version	0.0.9
+%define release	%mkrel 1
 
-%define libname %mklibname hangul 0
+%define major 0
+%define libname %mklibname hangul %major
 %define develname %mklibname -d hangul
 
 Name:		libhangul
@@ -18,7 +19,6 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 %description
 libhangul is a generalized and portable library for 
 processing hangul.
-
 
 %package -n	%{libname}
 Summary:	Main libhangul library
@@ -38,13 +38,11 @@ Obsoletes:	%mklibname -d hangul 0
 %description -n %{develname}
 Headers of %{name} for development.
 
-
 %prep
 %setup -q
 
 %build
-%configure2_5x
-
+%configure2_5x --disable-static
 %make
 
 %install
@@ -63,19 +61,16 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root)
-%_bindir/hanjac
-%_libdir/libhangul
-%{_datadir}/libhangul
+%{_libdir}/libhangul
 
 %files -n %{libname}
 %defattr(-,root,root)
-%{_libdir}/*.so.*
+%{_libdir}/*.so.%{major}*
 
 %files -n %{develname}
 %defattr(-,root,root)
 %doc AUTHORS COPYING ChangeLog NEWS README
 %{_includedir}/hangul-1.0/hangul.h
-%{_libdir}/*.a
 %{_libdir}/*.la
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/libhangul.pc
