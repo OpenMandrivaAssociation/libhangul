@@ -61,7 +61,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root)
-%{_libdir}/libhangul
+%{_datadir}/libhangul
 
 %files -n %{libname}
 %defattr(-,root,root)
