@@ -1,4 +1,4 @@
-%define version	0.0.11
+%define version	0.0.12
 %define release	%mkrel 1
 
 %define major 0
@@ -49,6 +49,8 @@ Headers of %{name} for development.
 rm -rf $RPM_BUILD_ROOT
 %makeinstall_std
 
+%find_lang %name
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -59,8 +61,9 @@ rm -rf $RPM_BUILD_ROOT
 %postun -n %{libname} -p /sbin/ldconfig
 %endif
 
-%files
+%files -f %name.lang
 %defattr(-,root,root)
+%{_bindir}/hangul
 %{_datadir}/libhangul
 
 %files -n %{libname}
