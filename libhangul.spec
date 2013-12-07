@@ -5,7 +5,7 @@
 Summary:	A generalized and portable library for hangul
 Name:		libhangul
 Version:	0.0.12
-Release:	3
+Release:	4
 Group:		System/Internationalization
 License:	LGPLv2+
 Url:		http://kldp.net/projects/hangul/
