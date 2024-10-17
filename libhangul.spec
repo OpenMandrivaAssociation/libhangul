@@ -8,7 +8,7 @@ Version:	0.1.0
 Release:	7
 License:	LGPLv2+
 Group:		System/Internationalization
-Url:		http://kldp.net/projects/hangul/
+Url:		https://kldp.net/projects/hangul/
 Source0:	http://kldp.net/frs/download.php/4618/%{name}-%{version}.tar.gz
 
 %description
